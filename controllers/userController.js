@@ -18,5 +18,33 @@ module.exports = {
     } catch (err) {
       res.status(500).json(err);
     }
+  },
+
+  async createUser(req, res) {
+    try {
+      const user = await User.create(req.body);
+      res.json(user);
+    } catch (err) {
+      res.status(400).json(err);
+    }
+  },
+
+  async updateUser(req, res) {
+    try {
+      const user = await User.findByIdAndUpdate(req.params.userId, req.body, { new: true });
+      res.json(user);
+    } catch (err) {
+      res.status(400).json(err);
+    }
+  },
+
+  async deleteUser(req, res) {
+    try {
+      const user = await User.findByIdAndDelete(req.params.userId);
+      await Thought.deleteMany({ _id: { $in: user.thoughts } });
+      res.json({ message: 'User and associated thoughts deleted' });
+    } catch (err) {
+      res.status(500).json(err);
+    }
   }
 };

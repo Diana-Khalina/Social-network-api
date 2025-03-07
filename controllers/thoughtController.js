@@ -17,7 +17,24 @@ module.exports = {
     } catch (err) {
       res.status(500).json(err);
     }
-  }
+  },
 
-  
+  async createThought(req, res) {
+    try {
+      const thought = await Thought.create(req.body);
+      await User.findByIdAndUpdate(req.body.userId, { $push: { thoughts: thought._id } });
+      res.json(thought);
+    } catch (err) {
+      res.status(400).json(err);
+    }
+  },
+
+  async deleteThought(req, res) {
+    try {
+      await Thought.findByIdAndDelete(req.params.thoughtId);
+      res.json({ message: 'Thought deleted' });
+    } catch (err) {
+      res.status(500).json(err);
+    }
+  }
 };
