@@ -38,7 +38,7 @@ npm run dev
 The API will be running at `http://localhost:3001`.
 
 ## Usage
-Use **Insomnia** or **Postman** to test the API endpoints.
+Use **Insomnia** to test the API endpoints.
 
 ## API Routes
 
@@ -73,14 +73,14 @@ Use **Insomnia** or **Postman** to test the API endpoints.
 | DELETE | `/api/thoughts/:thoughtId/reactions/:reactionId` | Remove a reaction       |
 
 ## Demo
-🎥 **[Click here](#)** to watch a walkthrough video of the API in action!
+🎥 **[[Click here](https://drive.google.com/file/d/1KLiD5OwxQS8zbiSqDXxYtN7zuC-usxHo/view?usp=sharing)](#)** to watch a walkthrough video of the API in action!
 
 ## Technologies Used
 - **Node.js**
 - **Express.js**
 - **MongoDB & Mongoose**
 - **JavaScript**
-- **Insomnia/Postman** (for testing API routes)
+- **Insomnia** 
 
 ## License
 This project is licensed under the **MIT License**.
